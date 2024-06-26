@@ -46,7 +46,10 @@
   </div>
 </div>
 
-<app-game-description class="pin-bottom"></app-game-description>
+<app-game-description
+  [card]="currentCard"
+  class="pin-bottom"
+></app-game-description>
 
 <button mat-fab class="btn-add" (click)="openDialog()">
   <mat-icon>add</mat-icon>
