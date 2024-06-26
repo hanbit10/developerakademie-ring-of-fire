@@ -20,12 +20,10 @@
   }
 }
 
-.top-card {
-  cursor: pointer;
+.pick-card {
   transition: all 0.1s ease-in-out;
-  &:hover {
-    transform: scale(1.1) translateY(-5px);
-  }
+  animation: pick-card-animation 1s ease-in-out;
+  transform: scale(1.3) translateX(120px) translateY(150px) rotate(10deg);
 }
 
 @keyframes pick-card-animation {
@@ -39,12 +37,6 @@
     transform: scale(1.7);
   }
   100% {
-    transform: scale(1.7) translateX(50px);
+    transform: scale(1.3) translateX(120px) translateY(150px) rotate(10deg);
   }
-}
-
-.pick-card {
-  transition: all 0.1s ease-in-out;
-  // transform: scale(1.5) !important;
-  animation: pick-card-animation 2s ease-in-out;
 }

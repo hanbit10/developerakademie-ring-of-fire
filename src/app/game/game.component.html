@@ -8,7 +8,6 @@
     />
     }
     <img
-      class="top-card"
       (click)="takeCard()"
       [ngStyle]="{ right: 25 + 'px' }"
       src="./assets/imgs/cards/card_cover.png"
@@ -16,7 +15,7 @@
     />
     @if(pickCardAnimation) {
     <img
-      class="top-card pick-card"
+      class="pick-card"
       (click)="takeCard()"
       [ngStyle]="{ right: 25 + 'px' }"
       src="./assets/imgs/cards/ace_1.png"
