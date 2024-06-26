@@ -1,1 +1,27 @@
-<p>game works!</p>
+<div class="field">
+  <div class="card-stack">
+    @for(card of [0,1,2,3]; track card; let i = $index) {
+    <img
+      [ngStyle]="{ right: i * 5 + 'px' }"
+      src="./assets/imgs/cards/card_cover.png"
+      alt=""
+    />
+    }
+    <img
+      class="top-card"
+      (click)="takeCard()"
+      [ngStyle]="{ right: 25 + 'px' }"
+      src="./assets/imgs/cards/card_cover.png"
+      alt=""
+    />
+    @if(pickCardAnimation) {
+    <img
+      class="top-card pick-card"
+      (click)="takeCard()"
+      [ngStyle]="{ right: 25 + 'px' }"
+      src="./assets/imgs/cards/ace_1.png"
+      alt=""
+    />
+    }
+  </div>
+</div>
