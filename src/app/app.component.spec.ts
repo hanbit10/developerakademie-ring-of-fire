@@ -14,16 +14,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'DeveloperAkademie-ring-of-fire' title`, () => {
+  it(`should have the 'developerakademie-ring-of-fire' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('DeveloperAkademie-ring-of-fire');
+    expect(app.title).toEqual('developerakademie-ring-of-fire');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, DeveloperAkademie-ring-of-fire');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Hello, developerakademie-ring-of-fire',
+    );
   });
 });
