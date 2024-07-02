@@ -9,6 +9,10 @@ export const routes: Routes = [
   },
   {
     path: 'game',
+    redirectTo: 'game/', // Redirect to the "game/" route
+  },
+  {
+    path: 'game/:id',
     component: GameComponent,
   },
 ];
