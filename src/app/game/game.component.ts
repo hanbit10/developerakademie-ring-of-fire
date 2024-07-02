@@ -36,7 +36,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
-  game!: any;
+  game!: Game;
   gameId!: string;
   gameData: any;
   firestore: Firestore = inject(Firestore);
@@ -56,11 +56,12 @@ export class GameComponent implements OnInit {
     this.unsubList = onSnapshot(
       doc(collection(this.firestore, 'games'), this.gameId),
       (firebaseData: any) => {
-        this.game = firebaseData.data();
-        // console.log('this is game data', this.gameData);
-        // this.game.players = this.gameData.players;
-        // this.game = this.gameData;
-        console.log('this is game', this.game);
+        this.gameData = firebaseData.data();
+        this.game.players = this.gameData.players;
+        this.game.stack = this.gameData.stack;
+        this.game.playedCards = this.gameData.playedCards;
+        this.game.currentPlayer = this.gameData.currentPlayer;
+        // console.log('this is game', this.game);
       },
     );
     // console.log(this.gameData);
