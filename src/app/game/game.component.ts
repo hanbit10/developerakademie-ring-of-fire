@@ -36,7 +36,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: string = '';
-  game!: Game;
+  game!: any;
   gameId!: string;
   gameData: any;
   firestore: Firestore = inject(Firestore);
@@ -52,6 +52,7 @@ export class GameComponent implements OnInit {
       this.gameId = params['id'];
     });
 
+    console.log(this.gameId);
     this.unsubList = onSnapshot(
       doc(collection(this.firestore, 'games'), this.gameId),
       (firebaseData: any) => {
@@ -59,10 +60,9 @@ export class GameComponent implements OnInit {
         // console.log('this is game data', this.gameData);
         // this.game.players = this.gameData.players;
         // this.game = this.gameData;
-        // console.log('this is game', this.game);
+        console.log('this is game', this.game);
       },
     );
-    // console.log('this is game', this.game);
     // console.log(this.gameData);
     // console.log('this is game', this.game);
 
@@ -74,7 +74,6 @@ export class GameComponent implements OnInit {
     // this.firestore.collection('games').valueChanges.subscribe((games: any) => {
     //   console.log('games', games);
     // });
-    // this.ngOnDestroy();
   }
   newGame() {
     this.game = new Game();
