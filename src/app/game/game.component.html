@@ -34,12 +34,12 @@
     }
 
     <!--Current card aniation-->
-    @if (pickCardAnimation) {
+    @if (game.pickCardAnimation) {
       <img
         class="pick-card"
         (click)="takeCard()"
         [ngStyle]="{ right: 25 + 'px' }"
-        src="./assets/imgs/cards/{{ currentCard }}.png"
+        src="./assets/imgs/cards/{{ game.currentCard }}.png"
         alt=""
       />
     }
@@ -47,7 +47,7 @@
 </div>
 
 <app-game-description
-  [card]="currentCard"
+  [card]="game.currentCard"
   class="pin-bottom"
 ></app-game-description>
 

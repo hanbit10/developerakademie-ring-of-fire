@@ -34,8 +34,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './game.component.scss',
 })
 export class GameComponent implements OnInit {
-  pickCardAnimation = false;
-  currentCard: string = '';
+  // pickCardAnimation = false;
+  // currentCard: string = '';
   game!: Game;
   gameId!: string;
   gameData: any;
@@ -48,6 +48,7 @@ export class GameComponent implements OnInit {
     public dialog: MatDialog,
   ) {}
   ngOnInit(): void {
+    this.newGame();
     this.route.params.subscribe((params) => {
       this.gameId = params['id'];
     });
@@ -61,7 +62,8 @@ export class GameComponent implements OnInit {
         this.game.stack = this.gameData.stack;
         this.game.playedCards = this.gameData.playedCards;
         this.game.currentPlayer = this.gameData.currentPlayer;
-        // console.log('this is game', this.game);
+        this.game.pickCardAnimation = this.gameData.pickCardAnimation;
+        this.game.currentCard = this.gameData.currentCard;
       },
     );
     // console.log(this.gameData);
@@ -93,15 +95,15 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (!this.pickCardAnimation) {
-      this.pickCardAnimation = true;
-      this.currentCard = this.game.stack.pop()!;
-      this.saveGame();
+    if (!this.game.pickCardAnimation) {
+      this.game.pickCardAnimation = true;
+      this.game.currentCard = this.game.stack.pop()!;
       this.game.currentPlayer++;
       this.game.currentPlayer %= this.game.players.length;
+      this.saveGame();
       setTimeout(() => {
-        this.game.playedCards.push(this.currentCard);
-        this.pickCardAnimation = false;
+        this.game.playedCards.push(this.game.currentCard);
+        this.game.pickCardAnimation = false;
         this.saveGame();
       }, 1000);
     }
