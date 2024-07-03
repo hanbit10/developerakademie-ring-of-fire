@@ -11,9 +11,23 @@
   @include dFlex(center, center);
 }
 
+.scroll-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  overflow-y: scroll;
+  // overflow-x: hidden;
+  app-player-mobile {
+    margin-left: 8px;
+  }
+}
+
 .card-stack {
   position: relative;
   > img {
+    margin-top: 16px;
     position: absolute;
     width: 80px;
     height: 120px;

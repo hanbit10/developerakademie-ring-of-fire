@@ -19,12 +19,14 @@ import {
   Unsubscribe,
 } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { PlayerMobileComponent } from '../player-mobile/player-mobile.component';
 @Component({
   selector: 'app-game',
   standalone: true,
   imports: [
     CommonModule,
     PlayerComponent,
+    PlayerMobileComponent,
     MatButtonModule,
     MatIconModule,
     FormsModule,
@@ -77,6 +79,10 @@ export class GameComponent implements OnInit {
     // this.firestore.collection('games').valueChanges.subscribe((games: any) => {
     //   console.log('games', games);
     // });
+  }
+
+  editPlayer(i: number) {
+    console.log('edit player', i);
   }
   newGame() {
     this.game = new Game();

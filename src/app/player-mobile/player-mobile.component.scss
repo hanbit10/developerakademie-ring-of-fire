@@ -1,0 +1,24 @@
+@import "./../../styles.scss";
+
+.player {
+  @include dFlex(flex-start, center);
+  flex-direction: column;
+  background-color: rgb(69, 69, 69);
+  max-width: 80px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  span {
+    font-size: 16px;
+    margin-left: 16px;
+  }
+  img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}
+
+.player-active {
+  background-color: orange;
+}

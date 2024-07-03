@@ -2,10 +2,20 @@
   <app-player
     [ngStyle]="{ top: 100 + i * 90 + 'px' }"
     [playerActive]="i == game.currentPlayer"
-    class="player-position"
+    class="player-position hide-mobile"
     [name]="player"
+    (click)="editPlayer(i)"
   ></app-player>
 }
+<div class="scroll-container hide-desktop">
+  @for (player of game.players; track player; let i = $index) {
+    <app-player-mobile
+      [playerActive]="i == game.currentPlayer"
+      [name]="player"
+      (click)="editPlayer(i)"
+    ></app-player-mobile>
+  }
+</div>
 <div class="field">
   <div class="card-stack">
     <!--Stack for cards -->
