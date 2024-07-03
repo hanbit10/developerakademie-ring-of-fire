@@ -20,6 +20,7 @@ import {
 } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerMobileComponent } from '../player-mobile/player-mobile.component';
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
 @Component({
   selector: 'app-game',
   standalone: true,
@@ -81,8 +82,12 @@ export class GameComponent implements OnInit {
     // });
   }
 
-  editPlayer(i: number) {
-    console.log('edit player', i);
+  editPlayer(playerId: number) {
+    console.log('edit player', playerId);
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe((change: string) => {
+      console.log('Receive change', change);
+    });
   }
   newGame() {
     this.game = new Game();

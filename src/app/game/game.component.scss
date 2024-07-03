@@ -34,6 +34,14 @@
   }
 }
 
+app-player,
+app-player-mobile {
+  cursor: pointer;
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
+
 .pick-card {
   transition: all 0.1s ease-in-out;
   animation: pick-card-animation 1s ease-in-out;
