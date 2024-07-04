@@ -1,6 +1,7 @@
 @import "./../../styles.scss";
 
 .player {
+  overflow: hidden;
   @include dFlex(flex-start, center);
   flex-direction: column;
   background-color: rgb(69, 69, 69);
