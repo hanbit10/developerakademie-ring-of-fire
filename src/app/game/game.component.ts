@@ -32,6 +32,7 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
     MatIconModule,
     FormsModule,
     GameDescriptionComponent,
+    EditPlayerComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
@@ -55,7 +56,6 @@ export class GameComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.gameId = params['id'];
     });
-
     console.log(this.gameId);
     this.unsubList = onSnapshot(
       doc(collection(this.firestore, 'games'), this.gameId),

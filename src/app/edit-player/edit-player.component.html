@@ -1,3 +1,8 @@
-@for (player of allProfilePictures; track player) {
-  <img src="./assets/imgs/profile/{{ player }}" alt="" />
+@for (picture of allProfilePictures; track picture) {
+  <img
+    class="profile-picture"
+    [mat-dialog-close]="picture"
+    src="./assets/imgs/profile/{{ picture }}"
+    alt=""
+  />
 }
