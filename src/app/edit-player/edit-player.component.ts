@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './edit-player.component.scss',
 })
 export class EditPlayerComponent implements OnInit {
-  allProfilePictures: string[] = [];
+  allProfilePictures: string[] = [
+    'man.jpg',
+    'woman.jpg',
+    'monkey.jpg',
+    'pinguin.svg',
+    'serious-woman.svg',
+    'winkboy.svg',
+  ];
   constructor() {}
   ngOnInit(): void {
     throw new Error('Method not implemented.');
