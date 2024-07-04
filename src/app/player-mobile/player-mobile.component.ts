@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class PlayerMobileComponent {
   @Input() name?: string;
   @Input() playerActive?: boolean;
+  @Input() image?: string;
 }

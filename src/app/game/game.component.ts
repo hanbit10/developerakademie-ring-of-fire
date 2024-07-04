@@ -62,6 +62,7 @@ export class GameComponent implements OnInit {
       (firebaseData: any) => {
         this.gameData = firebaseData.data();
         this.game.players = this.gameData.players;
+        this.game.player_images = this.gameData.player_images;
         this.game.stack = this.gameData.stack;
         this.game.playedCards = this.gameData.playedCards;
         this.game.currentPlayer = this.gameData.currentPlayer;
@@ -83,10 +84,18 @@ export class GameComponent implements OnInit {
   }
 
   editPlayer(playerId: number) {
-    console.log('edit player', playerId);
     const dialogRef = this.dialog.open(EditPlayerComponent);
     dialogRef.afterClosed().subscribe((change: string) => {
-      console.log('Receive change', change);
+      console.log('Received change', change);
+      if (change) {
+        if (change == 'DELETE') {
+          this.game.players.splice(playerId, 1);
+          this.game.player_images.splice(playerId, 1);
+        } else {
+          this.game.player_images[playerId] = change;
+        }
+        this.saveGame();
+      }
     });
   }
   newGame() {
@@ -127,6 +136,7 @@ export class GameComponent implements OnInit {
       if (name && name.length > 0) {
         console.log('game', this.game);
         this.game.players.push(name);
+        this.game.player_images.push('man.jpg');
         this.saveGame();
       }
     });
